@@ -266,4 +266,5 @@ be solved using linear programming, and calling glpk is virtually
 always easier than writing your own code to solve the problem.
 
 P.S. This blog post is generated from [literate Haskell](http://www.haskell.org/haskellwiki/Literate_programming) -
-it's a great way to write code.
+it's a great way to write code. If you go read the [source code](https://github.com/stucchio/Cloud-capacity-planning/blob/master/cloud-planning.lhs)
+for this program, you'll discover it's the blog post itself.

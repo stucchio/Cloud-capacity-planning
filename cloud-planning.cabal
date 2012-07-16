@@ -1,0 +1,20 @@
+Name:		CloudPlanning
+Version:	0.1
+Cabal-Version:  >= 1.2
+License:	GPL
+License-File:	LICENSE
+Author:		Chris Stucchio
+Homepage:	http://github.com/stucchio/
+Category:	Math
+Synopsis:	A demo of how to use linear programming to do capacity planning
+Build-type:     Simple
+Stability:      Experimental
+
+Executable cloud-planning
+  Main-Is:         cloud-planning.lhs
+  Build-Depends:   base,
+                   mtl >= 2.0.1.0,
+                   containers >= 0.4.0.0,
+                   glpk-hs >= 0.3.0
+  Hs-Source-Dirs:  .
+  Ghc-Options:     -threaded

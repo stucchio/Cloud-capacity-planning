@@ -50,14 +50,14 @@ a scalar, and `y` is also a vector. `f(x)` is typically called the *objective fu
 The constraint takes the form `M*x >= v`, where `M` is a matrix, and `v` is a vector.
 Inequality is interpreted pointwise. A simple example:
 
-    find argmax 2*x+y
+    find argmax 1.5*x+y
     subject to:
         x >= 0
         y >= 0
         -1*x + -2*y >= 4
 
 The constraints demand that the solution `(x, y)` lives in a bounded set, specifically
-the triangle with vertices `(0,0)`, `(4,0)` and `(0,2)`. And the goal is to make `2*x+y`
+the triangle with vertices `(0,0)`, `(4,0)` and `(0,2)`. And the goal is to make `1.5*x+y`
 as big as possible.
 
 So where can the solution lie?
@@ -66,8 +66,8 @@ The first fact to observe is that it can't lie on the *interior* of the triangle
 be on one of the edges. To see why this is so, imagine the maximum were at some point`(x0, y0)`
 inside the triangle but not on the edge. In that case, I can find a very small value `d`
 for which `(x0+d, y0)` is still inside the triangle - specifically, I just pick `d` equal
-to half the distance to the edge. If I compute `f(x0+d,y) = 2*x0+2*d+y0`, then this value
-is bigger than `f(x0,y)=2*x0+y0`. This means that `(x0, y0)` was not really the maximum.
+to half the distance to the edge. If I compute `f(x0+d,y) = 1.5*x0+1.5*d+y0`, then this value
+is bigger than `f(x0,y)=1.5*x0+y0`. This means that `(x0, y0)` was not really the maximum.
 
 I can make similar arguments about the edges. Suppose `p` is a point
 on the edge of triangle (but not the corner), and suppose `d` is a
@@ -76,6 +76,8 @@ function, `f(p+d)=f(p)+f(d)`. If `f(d) > 0`, then I can increase the
 objective function by moving in the direction of `d`, otherwise I can
 increase it by moving in the direction of `-d`. This means the maximum
 can't be on the edge either, except in the special case that `f(d)=0`.
+
+![diagram illustrating reasoning](polygon_diagram.png)
 
 So since the maximum of the objective function doesn't live inside the
 triangle or on the side, we find it must like at one of the corners of
